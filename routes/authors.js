@@ -1,19 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const authorControllers = require("../controllers/authorControllers")
 
 //Author Index
-router.get("/", (req, res) => {
-  res.render("authors/index");
-})
+router.get("/", authorControllers.author_index);
 
 //New Author
-router.get("/new", (req, res) => {
-  res.render("authors/new");
-})
+router.get("/new", authorControllers.author_new_get);
 
-router.get("/", (req, res) => {
-  res.send("Create");
-})
+//Create Author
+router.post("/", authorControllers.author_new_post)
 
 
 module.exports = router
