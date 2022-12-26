@@ -18,7 +18,7 @@ const author_index = async(req, res) => {
 }
 
 const author_new_get = async(req, res) => {
-  res.render("authors/create", { author: new Author() });
+  res.render("authors/new", { author: new Author() });
 }
 
 const author_new_post = async(req, res) => {
@@ -30,7 +30,7 @@ const author_new_post = async(req, res) => {
     // res.redirect(`authors/${newAuthor.id}`)
     res.redirect(`authors`)
   } catch {
-    res.render('authors/create', {
+    res.render('authors/new', {
       author: author,
       errorMessage: 'Error creating Author'
     })
