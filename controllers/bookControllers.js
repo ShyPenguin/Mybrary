@@ -1,5 +1,6 @@
 const Book = require("../models/book")
 const Author = require("../models/author")
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif', 'image/jpg']
 
 //All books
 const book_index = async(req, res) => {
@@ -16,7 +17,6 @@ const book_index = async(req, res) => {
 
   try{
     const books = await query.exec()
-    console.log(books);
     res.render('books/index', {
       books: books,
       searchOptions: req.query
@@ -31,16 +31,15 @@ const book_new_get = async(req, res) => {
 }
 
 const book_new_post = async(req, res) => {
-  const fileName = req.file != null ? req.file.filename : null
   const book = new Book({
     title: req.body.title,
     author: req.body.author,
     publishedDate: new Date(req.body.publishedDate),
     pageCount: req.body.pageCount,
-    coverImageName: fileName,
     description: req.body.description
   })
 
+  saveCover(book, req.body.cover, )
   try {
     const newBook = await book.save()
     res.redirect('books')
@@ -61,6 +60,16 @@ const renderNewPage = async(res, book, hasError = false) => {
     } catch {
       res.redirect('/books');
     }
+}
+
+const saveCover = (book, coverEncoded) => {
+  if (coverEncoded == null) return
+
+  const cover = JSON.parse(coverEncoded)
+  if( cover != null && imageMimeTypes.includes(cover.type)) {
+    book.coverImage = new Buffer.from(cover.data, 'base64')
+    book.coverImageType = cover.type
+  }
 }
 
 module.exports = {
