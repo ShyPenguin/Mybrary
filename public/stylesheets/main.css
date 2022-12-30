@@ -16,21 +16,25 @@
 }
 
 body {
-  background: linear-gradient(to right, 
-    var(--color-background-dark), var(--color-background-light));
+  background-color: var(--color-background-dark);
 }
 
 .container {
+  background-color: var(--color-background-dark);
   max-width: 1200px;
   margin: auto;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .inner-container {
-  margin: 0 2rem;
+  margin: 0 1rem;
+  margin-top: 0;
+  background-color: var(--color-background-light);
+  padding: 1.25rem;
 }
 
 h2 {
+  margin-top: 0;
   font-size: 2rem;
   font-weight: 500;
 }
