@@ -15,7 +15,6 @@ const author_index = async(req, res) => {
   } catch {
     res.redirect('/')
   }
-
 }
 
 const author_new_get = async(req, res) => {
@@ -91,7 +90,7 @@ const author_delete = async(req, res) => {
       res.redirect(`/authors/${author.id}`)
     }
   }
-}
+} 
     
 module.exports = {
   author_index,

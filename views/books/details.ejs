@@ -1,7 +1,9 @@
 <h2><%= book.title %></h2>
 <div class="book-details">
    <div>
-      <img class="book-cover" src="<%= book.coverImagePath %>">
+      <div class="book-container">
+         <img class="book-cover" src="<%= book.coverImagePath %>">
+      </div>
       <div class="book-details-btn-grid">
          <a class="btn btn-primary" href="/books/<%= book.id %>/edit">Edit</a>
          <%- include('../partials/deleteForm', 

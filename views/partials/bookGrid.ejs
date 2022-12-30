@@ -3,9 +3,11 @@
 
 <div class="book-grid <%= bookGridClass %>">
   <% books.forEach(book => {%>
-    <a href="/books/<%= book.id %>">
-      <img class="book-cover <%= bookCoverClass %>"src="<%= book.coverImagePath %>">
-    </a>
+    <div class="book-container">
+      <a href="/books/<%= book.id %>">
+        <img class="book-cover <%= bookCoverClass %>"src="<%= book.coverImagePath %>">
+      </a>
+    </div>
   <% }) %>
 </div>
 
