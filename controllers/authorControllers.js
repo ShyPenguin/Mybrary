@@ -56,10 +56,9 @@ const author_edit_get = async (req, res) => {
     res.render("authors/edit", { author: author});
   } catch {
     res.render("/authors")
-  }
-    
+  }   
 }
-
+  
 const author_update_put = async (req, res) => {
   let author
   try {
@@ -93,7 +92,7 @@ const author_delete = async(req, res) => {
     }
   }
 }
-
+    
 module.exports = {
   author_index,
   author_new_get,
