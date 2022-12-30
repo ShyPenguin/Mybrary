@@ -49,7 +49,7 @@ const author_details_get = async (req, res) => {
     res.redirect('/')
   }
 }
-
+   
 const author_edit_get = async (req, res) => {
   try {
     const author = await Author.findById(req.params.id)
@@ -57,7 +57,7 @@ const author_edit_get = async (req, res) => {
   } catch {
     res.render("/authors")
   }
-
+    
 }
 
 const author_update_put = async (req, res) => {
